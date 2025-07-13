@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Mensagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #e0f7fa; /* Um azul claro suave */
+            flex-direction: column; /* Para empilhar os elementos verticalmente */
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 22px); /* Ajusta a largura para o padding */
+        }
+        button {
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #mensagemGerada {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Mensagem Personalizada</h1>
+
+        <p>Seu Nome: <input type="text" id="nomeUsuario"></p>
+        <p>Sua Cor Favorita: <input type="text" id="corFavorita"></p>
+        <p>Seu Animal Favorito: <input type="text" id="animalFavorito"></p>
+
+        <button onclick="gerarMensagem()">Gerar Mensagem</button>
+
+        <p id="mensagemGerada"></p>
+    </div>
+
+    <script>
+        function gerarMensagem() {
+            let nome = document.getElementById("nomeUsuario").value;
+            let cor = document.getElementById("corFavorita").value;
+            let animal = document.getElementById("animalFavorito").value;
+
+            let mensagem = "Olá, " + nome + "! Sua cor favorita é " + cor + " e seu animal favorito é " + animal + ".";
+
+            // --- Comece a adicionar suas condições aqui! ---
+            if (cor.toLowerCase() === "azul") { // .toLowerCase() converte para minúsculas para comparar
+                mensagem += " Que legal, azul é uma cor muito bonita e relaxante!";
+            } else if (cor.toLowerCase() === "vermelho") {
+                mensagem += " Vermelho é uma cor vibrante e cheia de energia!";
+            }
+
+            if (animal.toLowerCase() === "cachorro") {
+                mensagem += " Cachorros são companheiros incríveis!";
+            } else if (animal.toLowerCase() === "gato") {
+                mensagem += " Gatos são elegantes e independentes!";
+            }
+            // --- Adicione mais 'if' ou 'else if' para outras cores/animais! ---
+
+            document.getElementById("mensagemGerada").textContent = mensagem;
+        }
+    </script>
+</body>
+</html>
